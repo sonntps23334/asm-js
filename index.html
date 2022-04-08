@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thành Sơn - PS23334 - Bài 1 - ASM1 - Javascript</title>
+    <link rel="stylesheet" href="./css/bai1.css">
+</head>
+
+<body>
+    <div class="menu">
+        <ul class="m">
+            <li class="item"><p>ASSIGNMENT JAVASCRIPT</p></li>
+        </ul>
+        <ul class="m">
+            <li  class="item"><a href="./bai1.html">Phương trình</a></li>
+            <li  class="item"><a href="./bai2.html">Album ảnh</a></li>
+            <li  class="item"><a href="./bai3.html">Bán hàng</a></li>
+            <li  class="item"><a href="./bai4.html">Đăng ký</a></li>
+            <li  class="item"><a href="./bai5.html">Đăng ký Angular</a></li>
+            <li  class="item"><a href="./bai6.html">Tổng hợp</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        
+        <h3>GIẢI PHƯƠNG TRÌNH BẬC ax<sup>2</sup> + bx + c</h3>
+        <span>Số lần giải: <b id="solangiai">0</b></br></span>
+
+        <hr>
+        <form>
+            <p><label>Nhập số a: </label><input type="text" id="a"></p>
+            <p><label>Nhập số b: </label><input type="text" id="b"></p>
+            <p><label>Nhập số c: </label><input type="text" id="c"></p>
+
+            <button type="button" class="nut_khoa" id="btngiai" onclick="ptb2.giai();dem();error();pt()" disabled>Giải
+                PT</button>
+            <button type="button" class="nut" id="btnchoso" onclick="choso()">Cho Số</button>
+            <button type="button" class="nut" id="btnchoso" onclick="location.reload()">Làm mới</button>
+        </form>
+        <div id="pt">
+            <b>Phương trình</b>
+        </div>
+        <div id="kq"> </div>
+        <p id="dongho"></p>
+    </div>
+    <footer>
+        <div class="menu">
+            <ul class="m">
+               
+            </ul>
+            <ul class="m">
+                <li  class="item"><p>Nguyễn Thành Sơn - PS23334 - Javascript
+                    <br>Mail: nguyenthanhsont123@gmail.com
+                    <br>SĐT: 0398185124
+                </p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="./js/bai1.js"></script>
