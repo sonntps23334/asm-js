@@ -1,0 +1,182 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.17.0/URI.min.js"></script>
+<script>
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+var mssv = getParameterByName('mssv');
+var ten = getParameterByName('hoten'); 
+var email = getParameterByName('email');
+var gender = getParameterByName('gender'); 
+var hobby = getParameterByName('hobby');
+var hobby1 = getParameterByName('hobby1');
+var hobby2 = getParameterByName('hobby2');
+var hobby3 = getParameterByName('hobby3');
+var note = getParameterByName('note');  
+
+</script>
+
+<style type="text/css">
+    body {
+    background-image: url("./image/bg3.jpg");
+    height: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #000;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;
+z-index: 100;
+display: none;
+}
+.cnt223 a{
+text-decoration: none;
+}
+.popup{
+width: 100%;
+margin: 0 auto;
+display: none;
+position: fixed;
+z-index: 101;
+}
+.cnt223{
+min-width: 600px;
+width: 600px;
+min-height: 150px;
+margin: 100px auto;
+background: #9abfd5ba;
+position: relative;
+z-index: 103;
+padding: 15px 35px;
+border-radius: 5px;
+box-shadow: 0 2px 5px #000;
+}
+#thank{
+    text-align: center;
+    margin-left: 27%;
+    color:rgb(0, 0, 0);
+}
+#check{
+    text-align: center;
+    margin-left: 25%;
+    color:rgb(0, 0, 0);
+}
+
+    #checkxs {
+    text-align: center;
+    margin-left: 27%;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+
+.cnt223 p{
+clear: both;
+    color: #555555;
+    /* text-align: justify; */
+    font-size: 20px;
+    font-family: sans-serif;
+}
+red{
+    color:red;
+}
+son{
+    color:black;
+    margin-left:140px;
+}
+noidung{
+    color:black;
+    font-weight: bold;
+}
+.cnt223 p a{
+color: #d91900;
+font-weight: bold;
+}
+.cnt223 .x{
+float: right;
+height: 35px;
+left: 22px;
+position: relative;
+top: -25px;
+width: 34px;
+}
+.cnt223 .x:hover{
+cursor: pointer;
+}
+.nd{
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px 10px;
+    text-align: center;
+}
+</style>
+<script type='text/javascript'>
+    
+$(function(){
+var overlay = $('<div id="overlay"></div>');
+overlay.show();
+overlay.appendTo(document.body);
+$('.popup').show();
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+
+$('.x').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+window.setTimeout( function(){
+                  window.location = "./bai4.html";
+              }, 10000);
+             
+</script>
+<div class='popup'>
+<div class='cnt223'>
+<h1>Đăng ký thành công</h1>
+<p>
+<span id="thank">Cảm ơn bạn đã sử dụng dịch vụ.<br></span><son>Đăng ký thành công lúc <span id="hvn"></span></son><br>
+<span id="check">Vui lòng kiểm tra lại thông tin của bạn.</span>
+<br/>
+<div class="nd">
+<script>
+document.write("<noidung>MSSV:</noidung> " + mssv + "<br>");
+document.write("<noidung>Tên:</noidung> " + ten +"<br>" + "<noidung>Email:</noidung> " +email+ "<br>" + "<noidung>Giới tính:</noidung> " + gender + "<br>" + "<noidung>Sở thích:</noidung> " + hobby+"<br>" + "<noidung>Ghi chú:</noidung> " + note + "<br>");
+</script></div>
+<br/>
+<span id="checkxs">Sau <red>10s</red> hệ thống sẽ chuyển hướng.</span>
+<!--<a href='./test.html' class='close'>Đóng</a>-->
+</p>
+</div>
+</div>
+<script>
+    var today = new Date();
+   var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   var dateTime = date+' '+time;
+
+   document.getElementById("hvn").innerHTML = dateTime;
+</script>

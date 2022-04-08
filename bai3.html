@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thành Sơn - PS23334 - Bài 3 - ASM2 - Javascript</title>
+    <link rel="stylesheet" href="./css/style.scss">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="./css/bai3.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+            <ul class="m">
+                <li class="itemx">
+                    <p>ASSIGNMENT JAVASCRIPT</p>
+                </li>
+            </ul>
+            <ul class="m">
+                <li class="itemx"><a href="./bai1.html">Phương trình</a></li>
+                <li class="itemx"><a href="./bai2.html">Album ảnh</a></li>
+                <li class="itemx"><a href="./bai3.html">Bán hàng</a></li>
+                <li class="itemx"><a href="./bai4.html">Đăng ký</a></li>
+                <li  class="item"><a href="./bai5.html">Đăng ký Angular</a></li>
+            <li  class="item"><a href="./bai6.html">Tổng hợp</a></li>
+            </ul>
+        </div>
+        <div class="title">
+            <h2>BÁN HÀNG</h2>
+            <select id="price-range" class="price-range" onclick="showEachList()">
+                <option disabled selected>Mức giá</option>
+                <option value="1">Giá dưới 3 triệu</option>
+                <option value="2">Giá từ 3 triệu đến 6 triệu</option>
+                <option value="3">Giá từ 6 triệu đến 10 triệu</option>
+                <option value="4">Giá từ 10 triệu đến 20 triệu</option>
+                <option value="5">Giá từ 20 triệu trở lên</option>
+                <option value="6">Tất cả</option>
+            </select>
+        </div>
+        <hr>
+      
+        <table border="1" id='mytable' class="mytable"  action="xuly.html?">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" id="checkAll" onchange="checkAll(this)"></th>
+                    <th>Hàng hóa</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody id="mylist">
+                <tr id="1">
+                    <td><input type="checkbox" class="checkbox-input" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td class="id">iPhone 13 Pro Max 256GB</td>
+                    <td>36900000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>Samsung Galaxy S22 Ultra 5G</td>
+                    <td>30900000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>OPPO Reno7 series</td>
+                    <td>10490000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>Xiaomi 11T</td>
+                    <td>10990000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>Samsung Galaxy A03</td>
+                    <td>2900000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>Vivo Y15 series</td>
+                    <td>3300000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>Xiaomi Redmi Note 11 (6GB/128GB)</td>
+                    <td>5900000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+                <tr class="row">
+                    <td><input type="checkbox" name="checkbox" id="" onchange="turnQtyInput(this)"></td>
+                    <td>OPPO A74</td>
+                    <td>6690000</td>
+                    <td><input type="number" name="qty" id="" min="0" step="1" disabled onchange="countCost()"></td>
+                    <td><span class="cost"></span></td>
+                </tr>
+               
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="tong">TỔNG</td>
+                    <td><span id="totalcost" class="tong"></span></td>
+                </tr>
+                
+                <!-- <td colspan="4" class="tong">TỔNG</td>
+                    <td><span id="kq"></span></td></tr>
+                    <tr> -->
+                    
+            </tfoot>
+                    
+        </table>
+
+        <section class="option-container containerx">
+            <!-- Mã giảm giá -->
+            <div class="promotion">
+                <label for="promo-code">Bạn có mã voucher?</label>
+                <input type="text" name="text1" autocomplete="off" />
+                <button type="button" onclick="validate(document.getElementsByName('text1')[0].value)"></button>
+                <span id="message"></span>
+                <span id="err"></span>
+            </div>
+
+            <!-- Tổng tiền -->
+            <div class="summary">
+                <ul>
+                    <li class="subtotal"><b>Tổng </b><b><span id="kq">0</span> VNĐ</b></li>
+                    <li class="total">Giảm<span id="kq1">0</span> VNĐ</li>
+                    <li class="total">Thành tiền <span id="kq2">0</span>VNĐ</li>
+                </ul>
+            </div>
+        </section>
+        <hr id="sonx">
+     
+       <input type="submit" class="nutmua" onclick="tb()" value="Mua">
+      
+      
+        <footer>
+            <div class="menu">
+                <ul class="m">
+                   
+                </ul>
+                <ul class="m">
+                    <li  class="item"><p>Nguyễn Thành Sơn - PS23334 - Javascript
+                        <br>Mail: nguyenthanhsont123@gmail.com
+                        <br>SĐT: 0398185124
+                    </p>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        
+    </div>
+    <script src="./js/bai3.js"></script>
+</body>
+
+</html>

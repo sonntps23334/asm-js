@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thành Sơn - PS23334 - Bài 5 - ASM3 - Javascript</title>
+    <link rel="stylesheet" href="../asm/css/bai5.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+
+</head>
+
+ 
+<body ng-app="myApp">
+    
+  <div class="menu">
+    <ul class="m">
+        <li class="item"><p>ASSIGNMENT JAVASCRIPT</p></li>
+    </ul>
+    <ul class="m">
+        <li  class="item"><a href="./bai1.html">Phương trình</a></li>
+        <li  class="item"><a href="./bai2.html">Album ảnh</a></li>
+        <li  class="item"><a href="./bai3.html">Bán hàng</a></li>
+        <li  class="item"><a href="./bai4.html">Đăng ký</a></li>
+        <li  class="item"><a href="./bai5.html">Đăng ký Angular</a></li>
+            <li  class="item"><a href="./bai6.html">Tổng hợp</a></li>
+    </ul>
+</div>
+<div class="container" ng-controller="myController">
+    <body class="align">
+        <div class="reg">
+          <div class="reg_header">
+            <h2>ĐĂNG KÝ THÀNH VIÊN</h2>
+          </div>
+      
+          <form action="xuly.html?" class="reg_form" id="form" role="form" ng-submit="submit()" name="myForm">
+      
+            <div>
+              <label for="name">Mã sinh viên</label>
+              <input type="text" id="ID" name="mssv" ng-minlength="7"
+              ng-maxlength="7" ng-model="employee.mssv" placeholder="PS23334" required
+              autocomplete="off">
+             <br><br> <span class="error" id="error-id" ng-show="myForm.mssv.$touched && myForm.mssv.$error.required">Vui lòng nhập dữ
+                liệu</span>
+                <span class="error" id="error-id" ng-show="myForm.$dirty && myForm.mssv.$error.maxlength">Phải nhập 7 ký tự
+                    nè</span>
+                    <span class="error" id="error-id" ng-show="myForm.$dirty && myForm.mssv.$error.minlength">Phải nhập 7 ký tự</span>
+            </div>
+            <div>
+                <label for="name">Họ và tên</label>
+                <input type="text" id="fullname" name="hoten"
+                ng-model="employee.hoten" ng-maxlength="30" placeholder="Nguyen Thanh Son"
+                 autocomplete="off" required>
+               <br><br> <span class="error" id="error-name" ng-show="myForm.hoten.$touched && myForm.hoten.$error.required">Vui lòng
+                    nhập dữ liệu</span> 
+                <span class="error" id="error-id" ng-show="myForm.$dirty && myForm.hoten.$error.maxlength">Phải nhập quá 30 ký
+                    tự</span> 
+            </div>
+              <div>
+                <label for="name">Email</label>
+                <input type="email" id="email" name="email"
+                ng-model="employee.email" required
+                ng-pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" autocomplete="off" placeholder="nguyenthanhsont123@gmail.com">
+                <br><br><span class="error" id="error-email" ng-show="myForm.email.$touched && myForm.email.$error.required">Vui lòng nhập
+                    email</span>
+                <span class="error" id="error-email" ng-show="myForm.email.$touched && myForm.email.$error.email">Email phải ở dạng
+                    admin@domain.com</span>    
+            </div>
+            <div>
+               <label for="email">Giới tính<br></label>
+               <div class="genders" id="genders">
+               <fieldset> <input type="radio" id="nam" name="gender" ng-model="employee.sex" value="Nam"> Nam
+                <input type="radio" id="nu" name="gender" ng-model="employee.sex" value="Nữ"> Nữ
+                <input type="radio" id="khac" name="gender" ng-model="employee.sex" value="Khác"> Khác 
+              </fieldset>
+            </div>
+            <span class="error" id="error-gender" ng-show="!employee.sex">Vui lòng chọn giới tính</span>
+        </div>
+           <div>
+                <label for="sothich"> Sở thích </label>
+                <div class="genders" id="hobbies">
+                <fieldset>
+                    <input  name="hobby" type="checkbox" ng-model="employee.type1" id="tt" value="Đọc sách" > Đọc sách
+                    <input  name="hobby1" type="checkbox" ng-model="employee.type2" id="dl" value="Du lịch"> Du lịch
+                    <input  name="hobby2" type="checkbox" ng-model="employee.type3" id="ms" value="Âm nhạc"> Âm nhạc
+                    <input  name="hobby3" type="checkbox" ng-model="employee.type4" id="at" value="Ẩm thực"> Ẩm thực 
+                    
+                </div></fieldset>
+                <span class="error" id="error-hobby" ng-show="!employee.type1  && !employee.type2  && !employee.type3  && !employee.type4 ">Vui
+                    lòng chọn sở thích</span>
+            </div>
+            <div>
+                <label for="quoctich" >Quốc tịch</label>
+               
+                <select class="quoctich" id="nation" class="input" ng-model="employee.country" name="country"
+                required>
+                    <option value="" selected disabled>Chọn quốc tịch</option>
+                    <option value="1" value="Việt Nam">Việt Nam</option>
+                    <option value="1" value="Nước Ngoài">Nước ngoài</option>
+                </select>
+                <span class="error" id="error-nation" ng-show="myForm.country.$touched && myForm.country.$error.required">Vui lòng chọn quốc tịch</span>
+            </div>
+           
+                <div>
+                    <label for="note"> Ghi chú</label>
+                    <textarea value="" name="note" rows="5" cols="47" style="resize:none;" id="note" class="input" ng-model="employee.note" ng-minlength="10" required></textarea>
+                    <br><span class="error" id="error-note" ng-show="myForm.note.$touched && myForm.note.$error.required">Vui lòng nhập nội dung</span>
+                    <span class="error" id="error-id" ng-show="myForm.$dirty && myForm.note.$error.minlength">Ghi chú phải nhập từ 10 ký tự</span> 
+                </div>
+            
+            <div>
+              <input class="button" type="submit" id="btn" ng-disabled="myForm.$invalid" value="Đăng ký">
+            </div>
+            <div id="alert" class="alert"></div>
+          </form>
+      
+        </div></div>
+        <footer>
+          <div class="menu">
+              <ul class="m">
+                 
+              </ul>
+              <ul class="m">
+                  <li  class="item"><p>Nguyễn Thành Sơn - PS23334 - Javascript
+                      <br>Mail: nguyenthanhsont123@gmail.com
+                      <br>SĐT: 0398185124
+                  </p>
+                  </li>
+              </ul>
+          </div>
+      </footer>
+  <script src="./js/bai5.js"></script>
+</body>
+</html>
